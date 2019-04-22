@@ -1,6 +1,9 @@
+from priceRepository import priceRepository
+
+
 class Register:
     def scan_item(self, item, units):
-        return 3.99
+        return priceRepository[item] * units
 
     def get_total(self):
         return 0.00
