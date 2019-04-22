@@ -1,6 +1,6 @@
 class Register:
     def scan_item(self, item, units):
-        return 0.00
+        return 3.99
 
     def get_total(self):
         return 0.00

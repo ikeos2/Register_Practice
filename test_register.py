@@ -1,11 +1,19 @@
 from unittest import TestCase
 from Register import Register
-from priceRepository import priceRepository
+
 
 class TestRegister(TestCase):
-    def test_scan_item(self):
-        reg = Register()
-        self.assertEqual(reg.scan_item("Ground Beef", 1), 3.99)
+    def setUp(self):
+        self.reg = Register()
+
+    def test_initial_register_state(self):
+        self.assertEqual(self.reg.get_total(), 0.00)
+
+    def test_scan_item_ground_beef(self):
+        self.assertEqual(self.reg.scan_item("Ground Beef", 1), 3.99)
+
+    def test_scan_item_milk(self):
+        self.assertEqual(self.reg.scan_item("Milk", 1), 4.99)
 
     # def test_get_total(self):
     #     self.fail()
