@@ -18,5 +18,12 @@ class TestRegister(TestCase):
     def test_scan_unknown_item(self):
         self.assertEqual(self.reg.scan_item("Mystery Goo", 10), 0.00)
 
-    # def test_get_total(self):
-    #     self.fail()
+    # def test_scan_multiple_items(self):
+
+    def test_get_initial_total(self):
+        self.assertEqual(self.reg.get_total(), 0.00)
+
+    def test_get_total_with_item(self):
+        self.reg.scan_item("Milk", 1)
+        self.assertEqual(self.reg.get_total(), 4.99)
+
