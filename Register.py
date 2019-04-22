@@ -3,7 +3,10 @@ from priceRepository import priceRepository
 
 class Register:
     def scan_item(self, item, units):
-        return priceRepository[item] * units
+        if item in priceRepository:
+            return priceRepository[item] * units
+        else:
+            return 0
 
     def get_total(self):
         return 0.00
