@@ -2,17 +2,26 @@ from priceRepository import priceRepository
 
 
 class Register:
+    def __init__(self):
+        self.cart = {}
+        self.total = 0.00
+
     def scan_item(self, item, units):
+        ret = 0.00
         if item in priceRepository:
-            return priceRepository[item] * units
-        else:
-            return 0
+            if item not in self.cart:
+                self.cart[item] = units
+            else:
+                self.cart[item] += units
+            ret = priceRepository[item] * units  # show the price of the thing we just scanned @ # of units
+        self.total += ret
+        return ret
 
     def get_total(self):
-        return 0.00
+        return self.total
 
 
 if __name__ == "__main__":
     reg = Register()
-    reg.scan_item("Ground Beef", 1)
-    reg.get_total()
+    print(reg.scan_item("Ground Beef", 1))
+    print(reg.get_total())
