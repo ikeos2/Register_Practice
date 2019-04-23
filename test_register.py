@@ -1,3 +1,4 @@
+import unittest
 from unittest import TestCase
 from Register import Register
 
@@ -38,4 +39,7 @@ class TestRegister(TestCase):
         self.reg.scan_item("Gum", 2)
         self.assertEqual(self.reg.get_total(), .25)
 
+
+if __name__ == '__main__':
+        unittest.main()
 
