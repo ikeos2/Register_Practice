@@ -1,4 +1,4 @@
-###Set up
+### Set up
 Configure a virtual environment
 
 `virtualenv venv`
@@ -12,7 +12,7 @@ These tests can be run inside PyCharm easily or in the command line as shown bel
 
 `python test_register.py`
 
-###Using the register
+### Using the register
 The register object is designed to copy a common cash register.
 
 When you scan an item, the register will display the price and add the item(and weight) to a list.
