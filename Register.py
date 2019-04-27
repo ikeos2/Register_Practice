@@ -1,9 +1,11 @@
 from priceRepository import priceRepository
+from discountsRepository import n_for_m_limit_y
 
 
 class Register:
     def __init__(self):
         self.cart = {}
+        self.discounts = {}
         self.total = 0.00
 
     def scan_item(self, item, units):
