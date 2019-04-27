@@ -12,7 +12,8 @@
 #  [2]  y = discount % of m items ( price * y = discounted price )
 #  [3]  z = limit of discounted items ( 0 = no limit)
 n_for_m_limit_y = {"Gum": [2, 1, 0.00, 1],  # Buy 2 get 1 free
-                   "Chicken Soup": [1, 1, .9, 0]}  # 10% off
+                   "Chicken Soup": [1, 1, .9, 0],  # 10% off
+                   "Mustard": [3, 3, .66, 3]}  # 3 for 2
 
 
 # ie 2 for 1, limit <none>
@@ -20,4 +21,5 @@ n_for_m_limit_y = {"Gum": [2, 1, 0.00, 1],  # Buy 2 get 1 free
 #  [0]  n = required items(total items)
 #  [1]  m = total price for n items
 #  [2]  z = limit ( 0 = no limit)
-n_for_m__limit_y_fixed = {"Milk": [2, 7.00, 2]}
+n_for_m__limit_y_fixed = {"Milk": [2, 7.00, 2],
+                          "Mustard": [1, 1.00, 0]}  # Clearance Mustard

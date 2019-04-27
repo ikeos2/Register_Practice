@@ -22,6 +22,11 @@ class TestDiscount_engine(TestCase):
         self.assertEqual(discount_engine({"Chicken Soup": 2}), {'Chicken Soup': 3.582})
         self.assertEqual(discount_engine({"Chicken Soup": 3}), {'Chicken Soup': 5.373})
 
+    def test_multiple_valid_discounts(self):
+        self.assertEqual(discount_engine({"Mustard": 3}), {'Mustard': 3.00})
+
+    def test_n_for_m_fixed(self):
+        self.assertEqual(discount_engine({"Milk": 2}), {'Milk': 7.00})
 
 class TestLimitY(TestCase):
     def test_limit_given_lower_than_limit(self):

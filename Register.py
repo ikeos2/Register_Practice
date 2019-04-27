@@ -18,7 +18,11 @@ class Register:
         return ret
 
     def void_item(self, item, units):
-        return
+        if item in self.cart:
+            if self.cart[item] > units:
+                self.cart[item] -= units
+            else:
+                del self.cart[item]
 
     def get_total(self):
         discounted_prices = discount_engine(self.cart)
