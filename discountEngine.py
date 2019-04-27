@@ -12,7 +12,7 @@ def limit_y(num_items, max_items):
 
 def discount_engine(cart):
     discounts = {}
-    for c_item, c_units in cart:  # For every item in our cart
+    for c_item, c_units in cart.items():  # For every item in our cart
         discounts[c_item] = {}  # Create a list of all the discounts available for this
         if c_item in n_for_m_limit_y:
             discounts[c_item]['n_for_m_limit_y'] = 9999.99  # if there is a discount available for item of this type
