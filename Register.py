@@ -1,4 +1,5 @@
 from priceRepository import priceRepository
+from discountEngine import discount_engine
 
 
 class Register:
@@ -16,10 +17,16 @@ class Register:
             ret = priceRepository[item] * units  # show the price of the thing we just scanned @ # of units
         return ret
 
+    def void_item(self, item, units):
+        return
+
     def get_total(self):
+        discounted_prices = discount_engine(self.cart)
         total = 0.00
         for item, units in self.cart.items():
-            total += priceRepository[item] * units
+            regular_price = priceRepository[item] * units
+            discount_price = discounted_prices[item]
+            total += min(regular_price, discount_price)
         return total
 
 

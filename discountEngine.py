@@ -30,7 +30,7 @@ def discount_engine(cart):
     for item, discount_types_dict in discounts.items():
         min_price = 9999.99
         for discount_type, price in discount_types_dict.items():
-            if min_price < price:
+            if min_price > price:
                 min_price = price
         lowest_discounts[item] = min_price
     # return dict of lowest totals

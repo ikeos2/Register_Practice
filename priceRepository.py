@@ -4,4 +4,5 @@ priceRepository = {"Ground Beef": 3.99,
                    "Eggs": 1.37,
                    "Bread": 3.50,
                    "Gum": .25,
-                   "Round up for charity": .01}
+                   "Round up for charity": .01,
+                   "Chicken Soup": 1.99}
