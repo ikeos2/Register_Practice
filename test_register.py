@@ -39,6 +39,11 @@ class TestRegister(TestCase):
         self.reg.scan_item("Gum", 2)
         self.assertEqual(self.reg.get_total(), .25)
 
+    def test_void_an_item(self):
+        self.reg.scan_item("Milk", 1)
+        self.reg.void_item("Milk", 1)
+        self.assertEqual(self.reg.get_total(), 0.00)
+
 
 if __name__ == '__main__':
         unittest.main()
