@@ -28,6 +28,7 @@ class TestDiscount_engine(TestCase):
     def test_n_for_m_fixed(self):
         self.assertEqual(discount_engine({"Milk": 2}), {'Milk': 7.00})
 
+
 class TestLimitY(TestCase):
     def test_limit_given_lower_than_limit(self):
         self.assertEqual(limit_y(1, 2), 1)
