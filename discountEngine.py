@@ -13,7 +13,8 @@ def limit_y(num_items, max_items):
 def discount_engine(cart):
     discounts = {}
     for c_item, c_units in cart.items():  # For every item in our cart
-        discounts[c_item] = {}  # Create a list of all the discounts available for this
+        if c_item not in discounts:
+            discounts[c_item] = {}  # Create a list of all the discounts available for this
         if c_item in n_for_m_limit_y:
             discounts[c_item]['n_for_m_limit_y'] = 9999.99  # if there is a discount available for item of this type
             if c_units >= n_for_m_limit_y[c_item][0]:  # if we have enough items to qualify for the discount
@@ -37,11 +38,11 @@ def discount_engine(cart):
             other_item = weighted_buy_n_get_m_x_off[c_item][0]
             if other_item in cart:
                 other_item_price = priceRepository[other_item]
-                # TODO: check if discounts[otheritem] exists, create if not
+                if other_item not in discounts:
+                    discounts[other_item] = {}
                 discounts[other_item]['weighted_buy_n_get_m_x_off'] = cart[other_item] * \
                                                                       other_item_price * \
                                                                       weighted_buy_n_get_m_x_off[c_item][2]
-
 
     # set discounts_return[item] to reflect lowest price
     lowest_discounts = {}

@@ -34,4 +34,4 @@ weighted_items = ["Ground Beef", "Apples", "Chicken"]
 # [0] Other item to be discounted
 # [1] n = required amount to buy
 # [2] discount amount
-weighted_buy_n_get_m_x_off = {"Ground Beef": ['Chicken', 1, .9]}
+weighted_buy_n_get_m_x_off = {"Ground Beef": ["Chicken", 1, .9]}

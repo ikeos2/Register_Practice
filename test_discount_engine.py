@@ -32,8 +32,8 @@ class TestDiscount_engine(TestCase):
         self.assertEqual(discount_engine({"Coke": 6}), {'Coke': 6.00})
 
     def test_weighted_item_n_for_m(self):
-        self.assertEqual({"Ground Beef": 3.99, "Chicken": 2.70},
-                         discount_engine({"Ground Beef": 1.0, "Chicken": 1.0}))
+        results = discount_engine({"Ground Beef": 1.0, "Chicken": 1.0})
+        self.assertEqual({"Ground Beef": 9999.99, "Chicken": 2.70}, results)  # Ground beef wont have a discount, but chicken will
 
 
 class TestLimitY(TestCase):
