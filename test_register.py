@@ -59,6 +59,7 @@ class TestRegister(TestCase):
         self.reg.void_item("Gum", 2)
         self.assertEqual(self.reg.get_total(), .25)
 
+
 if __name__ == '__main__':
     unittest.main()
 

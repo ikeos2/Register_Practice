@@ -1,5 +1,5 @@
 from priceRepository import priceRepository
-from discountsRepository import n_for_m_limit_y, n_for_m_limit_y_fixed
+from discountsRepository import n_for_m_limit_y, n_for_m_limit_y_fixed, weighted_buy_n_get_m_x_off, weighted_items
 
 
 def limit_y(num_items, max_items):
@@ -31,6 +31,17 @@ def discount_engine(cart):
                 # now set the discounted price
                 discounts[c_item]['n_for_m_limit_y_fixed'] = fixed_price + \
                                                              (max(c_units - item_limit, 0.0) * regular_price)
+
+        if c_item in weighted_items and c_item in weighted_buy_n_get_m_x_off:
+            # We have all the required items
+            other_item = weighted_buy_n_get_m_x_off[c_item][0]
+            if other_item in cart:
+                other_item_price = priceRepository[other_item]
+                # TODO: check if discounts[otheritem] exists, create if not
+                discounts[other_item]['weighted_buy_n_get_m_x_off'] = cart[other_item] * \
+                                                                      other_item_price * \
+                                                                      weighted_buy_n_get_m_x_off[c_item][2]
+
 
     # set discounts_return[item] to reflect lowest price
     lowest_discounts = {}
