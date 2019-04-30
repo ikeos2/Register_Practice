@@ -20,7 +20,7 @@ class TestRegister(TestCase):
         self.assertEqual(results, self.reg.scan_item("Milk", 1))
 
     def test_scan_unknown_item(self):
-        results =  0.00
+        results = 0.00
         self.assertEqual(results, self.reg.scan_item("Mystery Goo", 10))
 
     def test_scan_multiple_items(self):
@@ -69,6 +69,19 @@ class TestRegister(TestCase):
         self.reg.void_item("Gum", 2)
         results = .25
         self.assertEqual(results,  self.reg.get_total())
+
+    def test_many_item_multiple_discounts(self):
+        self.reg.scan_item("Gum", 2)  # .25
+        self.reg.scan_item("Milk", 2)  # 7.00
+
+        results = 7.25
+        self.assertEqual(results,  self.reg.get_total())
+
+    def test_weighted_item_n_for_m(self):
+        results = 6.69
+        self.reg.scan_item("Ground Beef", 1.0)   # 3.99
+        self.reg.scan_item("Chicken", 1.0)  # 2.70
+        self.assertEqual(self.reg.get_total(), results)  # test from discount engine
 
 
 if __name__ == '__main__':
